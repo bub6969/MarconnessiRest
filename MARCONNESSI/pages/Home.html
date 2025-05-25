@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>MARCONNESSI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style-home.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">MARCONNESSI</div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#" id="open-bacheca">Bacheca</a></li>
+      <li><a href="#">Mappa</a></li>
+      <li><a href="#">Ticket</a></li>
+      <li><a href="#" id="open-profilo">Profilo</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1 class="titolo-pagina">Benvenuto utente</h1>
+  <p class="sottotitolo">Oggi è <span id="data-oggi"></span></p>
+
+  <div class="blocco">
+    <h2>Orario di Oggi</h2>
+    <div class="clickable-block" data-href="https://www.html.it/articoli/righe-di-tabella-cliccabili-con-jquery/">
+      <table class="blocco-table">
+        <tbody>
+          <tr id="lezioni-row">
+            <!-- Celle da riempire -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="blocco" id="bacheca-annunci">
+    <h2>Bacheca Annunci</h2>
+    <ul id="lista-annunci">
+      <!-- Qui verranno caricati gli annunci -->
+    </ul>
+  </div>
+</div>
+
+<div id="profiloSidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" id="close-profilo">&times;</a>
+  <h2>Profilo Utente</h2>
+  <div id="profilo-content">
+    <!-- Qui verranno caricati i dati del profilo -->
+  </div>
+</div>
+
+<div id="bachecaSidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" id="close-bacheca">&times;</a>
+  <h2>Bacheca Annunci</h2>
+  <ul id="bacheca-content"></ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script src="../assets/script-home.js"></script>
+
+</body>
+</html>

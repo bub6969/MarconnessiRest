@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Studenti</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0f5ea2, #16847c);
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #ffe;
+    }
+
+    .orario, .ticket {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .lezioni, .ticket-list {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    button, .link-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #1d9bf0;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .external-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .external-links div {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .external-links img {
+      height: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#">Bacheca</a>
+    <a href="#">Mappa</a>
+    <a href="#">Home</a>
+    <a href="#">Ticket</a>
+    <a href="#">Profilo</a>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <p>Benvenuto <strong>&lt;nome&gt;</strong></p>
+      <p>Oggi è il giorno <strong>&lt;giorno&gt; &lt;mese&gt; &lt;anno&gt;</strong></p>
+    </div>
+
+    <div class="section orario">
+      <h2>ORARIO DI OGGI</h2>
+      <div class="lezioni">
+        <span>&lt;materia&gt;<br>&lt;prof&gt;<br>&lt;aula&gt;</span>
+        <span>&lt;materia&gt;<br>&lt;prof&gt;<br>&lt;aula&gt;</span>
+        <span>&lt;materia&gt;<br>&lt;prof&gt;<br>&lt;aula&gt;</span>
+        <span>&lt;materia&gt;<br>&lt;prof&gt;<br>&lt;aula&gt;</span>
+      </div>
+      <button>Visualizza orario completo</button>
+    </div>
+
+    <div class="section ticket">
+      <h2>TICKET</h2>
+      <div class="ticket-list">
+        <div>
+          <strong>&lt;oggetto&gt;</strong><br>
+          <span>&lt;richiesta&gt;</span>
+        </div>
+        <div>
+          ⚪⚫⚪
+        </div>
+      </div>
+      <div class="ticket-list">
+        <div>
+          <strong>&lt;oggetto&gt;</strong><br>
+          <span>&lt;richiesta&gt;</span>
+        </div>
+        <div>
+          ⚫⚪⚪
+        </div>
+      </div>
+      <button>Visualizza tutti i ticket</button>
+    </div>
+
+    <div class="external-links">
+      <div>
+        <span>moodle</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Moodle-logo.svg" alt="Moodle">
+      </div>
+      <div>
+        <span>Teams</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg" alt="Teams">
+      </div>
+      <div>
+        <span>Marconi</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_Politecnico_Milano.svg" alt="Marconi">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Marconnessi. Tutti i diritti riservati.
+  </footer>
+</body>
+
+</html>
