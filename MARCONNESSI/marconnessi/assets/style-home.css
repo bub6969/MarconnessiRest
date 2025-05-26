@@ -1,0 +1,452 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+}
+
+header {
+  background-color: #f0f4f8;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  color: #003366;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #007acc;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  gap: 20px;
+  width: 100%;
+}
+
+.titolo-pagina {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  color: #003366;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sottotitolo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  color: #333333;
+  margin: 10px 0 30px 0;
+}
+
+.blocco {
+  background-color: #ffffff;
+  padding: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: #333333;
+  box-shadow: 0 0 12px 3px rgba(0, 51, 102, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.blocco h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #003366;
+  margin-top: 0;
+}
+
+.blocco-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.blocco-table th, .blocco-table td {
+  text-align: left;
+  padding: 8px;
+  border-top: none;
+  border-bottom: none;
+  border-right: 1px solid #ddd;
+}
+
+.blocco-table td:last-child, .blocco-table th:last-child {
+  border-right: none;
+}
+
+.blocco-table th {
+  background-color: #f4f4f4;
+}
+
+tbody tr.clickable:hover td {
+  cursor: pointer;
+}
+
+/* Sidebar stile offcanvas */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 60px;
+  box-shadow: -2px 0 8px #0002;
+}
+.sidebar h2 {
+  margin-left: 24px;
+  color: #003366;
+}
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 24px;
+  font-size: 36px;
+  color: #1976d2;
+  cursor: pointer;
+  text-decoration: none;
+}
+.sidebar a {
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  color: white;
+  transition: background 0.2s;
+}
+.sidebar a:hover {
+  background-color: #34495e;
+}
+.sidebar.open {
+  left: 0;
+}
+#bacheca-content {
+  padding: 0 24px;
+  list-style: none;
+}
+#bacheca-content li {
+  margin-bottom: 18px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.submenu {
+  display: none;
+  background-color: #34495e;
+}
+
+.submenu a {
+  padding-left: 40px;
+}
+
+.sidebar .dropdown.open .submenu {
+  display: block;
+}
+
+.sidebar .dropdown > a {
+  cursor: pointer;
+}
+
+.toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  border-radius: 6px;
+  font-size: 1.2em;
+}
+
+#profilo-content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 16px 2px rgba(0,51,102,0.10);
+  margin: 24px;
+  font-size: 20px;
+  color: #333;
+  padding: 32px 24px;
+}
+#profilo-content .profile-label {
+  font-weight: bold;
+  color: #007acc;
+}
+#profilo-content .logout-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 24px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+#profilo-content .logout-btn:hover {
+  background: #005b99;
+}
+#profilo-content .profile-info {
+  overflow-x: auto;
+}
+.profile-value.mail-scroll {
+  display: inline-block;
+  max-width: 180px;
+  vertical-align: middle;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.popup-mappa {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-mappa .closebtn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.gestione-menu {
+  position: relative;
+}
+.gestione-menu > a {
+  cursor: pointer;
+  /* Eventuali altri stili del menu orizzontale */
+}
+.submenu-gestione {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 0 0 8px 8px;
+  min-width: 220px;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+}
+.gestione-menu.open .submenu-gestione {
+  display: flex;
+}
+.submenu-gestione li {
+  list-style: none;
+  margin: 0;
+}
+.submenu-gestione li a {
+  display: block;
+  padding: 14px 24px;
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+.submenu-gestione li a:hover {
+  background: #f0f4f8;
+  color: #1976d2;
+}
+.submenu-gestione li:last-child a {
+  border-bottom: none;
+}
+
+    .ticket-form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    .ticket-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .ticket-form input,
+    .ticket-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .ticket-form button {
+      padding: 10px 20px;
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .ticket-form button:hover {
+      background: #005b99;
+    }
+    #formMessage {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .ticket-list {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .ticket {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .ticket .titolo {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .ticket .data,
+    .ticket .stato {
+      font-size: 14px;
+      color: #555;
+    }
+    .ticket .corpo {
+      margin: 10px 0;
+    }
+    .ticket.risolto {
+      border-left: 5px solid green;
+    }
+    .ticket.non-risolto {
+      border-left: 5px solid red;
+    }
+#form-annuncio-sidebar input,
+#form-annuncio-sidebar textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+}
+#form-annuncio-sidebar button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+#form-annuncio-sidebar button:hover {
+  background: #005b99;
+}
+
+    .ticket-form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    .ticket-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .ticket-form input,
+    .ticket-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .ticket-form button {
+      padding: 10px 20px;
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .ticket-form button:hover {
+      background: #005b99;
+    }
+    #formMessage {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .ticket-list {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .ticket {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .ticket .titolo {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .ticket .data,
+    .ticket .stato {
+      font-size: 14px;
+      color: #555;
+    }
+    .ticket .corpo {
+      margin: 10px 0;
+    }
+    /* Esempio di stile per i ticket "risolti" e "non risolti" */
+    .ticket.risolto {
+      border-left: 5px solid green;
+    }
+    .ticket.non-risolto {
+      border-left: 5px solid red;
+    }
+  
