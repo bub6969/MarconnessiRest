@@ -1,0 +1,74 @@
+<?php
+session_start();
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+include_once(__DIR__ . '/../../config/database.php');
+
+$database = new Database();
+$conn = $database->getConnection(); // <-- Changed $db to $conn here!
+
+// Check for connection error immediately after getting the connection
+if ($conn->connect_error) {
+    http_response_code(500); // Internal Server Error
+    echo json_encode(["error" => "Errore di connessione al database: " . $conn->connect_error]);
+    exit;
+}
+
+$id_studente = $_SESSION['id_persona'] ?? null;
+
+if (!$id_studente) {
+    http_response_code(400);
+    echo json_encode(["error" => "Utente non autenticato"]);
+    exit;
+}
+
+$sql = "
+SELECT
+    s.giorno,
+    l.ora_lezione,
+    m.nome_materia,
+    a.aula
+FROM persone p
+JOIN frequenta f ON p.id_persona = f.id_persona
+JOIN lezioni l ON f.id_classe = l.id_classe
+JOIN materie m ON l.id_materia = m.id_materia
+JOIN settimana s ON l.giorno_lezione = s.id_giorno
+JOIN aule a ON l.id_aula = a.id_aula
+WHERE p.id_persona = ?
+ORDER BY s.id_giorno, l.ora_lezione;
+";
+
+$stmt = $conn->prepare($sql); // This will now work!
+if (!$stmt) {
+    // Handle prepare error (e.g., malformed SQL query)
+    http_response_code(500);
+    echo json_encode(["error" => "Errore nella preparazione della query: " . $conn->error]);
+    exit;
+}
+
+$stmt->bind_param("i", $id_studente);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$orario = [];
+while ($row = $result->fetch_assoc()) {
+    $giorno = $row['giorno'];
+    if (!isset($orario[$giorno])) {
+        $orario[$giorno] = [];
+    }
+    $orario[$giorno][] = [
+        "ora" => $row['ora_lezione'],
+        "materia" => $row['nome_materia'],
+        "aula" => $row['aula']
+    ];
+}
+
+// Close the statement and connection
+$stmt->close();
+$conn->close(); // Good practice to close the connection
+
+echo json_encode($orario);
+?>
