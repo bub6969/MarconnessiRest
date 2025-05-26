@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #e0f7fa, #f0f4f8); /* azzurro leggero e grigio chiaro */
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenitore immagine */
+.fullscreen-image {
+  position: relative;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Immagine */
+.fullscreen-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cambiato da contain a cover */
+}
+
+/* Bottone cliccabile sulla mappa */
+.map-button {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.map-button:hover {
+  background-color: #005f99;
+}
