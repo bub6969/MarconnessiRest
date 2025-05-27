@@ -1,0 +1,8 @@
+MAIL					PASSWORD
+
+
+mirkonufrio@marconnessi.admin.com		mirkoadmin
+
+alessandroarcenni@marconnessi.com		alessandrostudente
+
+vincenzashohrehdemarco@marconnessi.prof.com	vincenzaprof
